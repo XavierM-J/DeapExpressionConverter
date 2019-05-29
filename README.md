@@ -4,7 +4,7 @@ You are using DEAP and your result look like that `mul(cos(add(add(1,2),3)),add(
 
 You want a "regular" expression instead ? Such as `cos((1+2)+3)*(4+5)` ?
 
-Then this repository has everything you need.
+Then this repository has everything you need. This program will convert your Deap expression to a human readable one.
 
 ## How to use it ?
 
