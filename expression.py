@@ -31,7 +31,7 @@ class Node:
         self.value = value
         self.left = left
         self.right = right
-        self.isLeftNode = False  # boolean used to find the right son of a node
+        self.is_a_son = False  # boolean used to find the right son of a node
 
 
 # transforms a complex expression to a list
@@ -93,15 +93,16 @@ def get_tree_root(expression):
         # if the 
         if node.left in unaryOperator or node.left in binaryOperator:
             node.left = node_list[i + 1]
-            node.left.isLeftNode = True
+            node.left.is_a_son = True
 
     # then the right one
-    for i, node in enumerate(node_list):
+    for i, node in enumerate(reversed(node_list)):
         if node.right in unaryOperator or node.right in binaryOperator:
-            j = i + 1
-            while node_list[j].isLeftNode:  # the next node that is not a left son will be our right son
+            j = len(node_list) - i
+            while node_list[j].is_a_son:
                 j += 1
             node.right = node_list[j]
+            node_list[j].is_a_son = True
 
     return node_list[0]
 
