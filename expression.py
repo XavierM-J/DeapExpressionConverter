@@ -77,7 +77,7 @@ def get_node_list(expression_list):
             node.right = expression_list[j]
             node_list.append(node)
         elif operator in unaryOperator:
-            # since an unary operator as only one son we already know that it'll be the next one in the list
+            # since an unary operator has only one son we already know that it'll be the next one in the list
             node = Node(operator, None, None)
             node.left = expression_list[i+1]
             node_list.append(node)
@@ -90,7 +90,6 @@ def get_tree_root(expression):
     # now we link node son to other node
     # we start with the left one
     for i, node in enumerate(node_list):
-        # if the 
         if node.left in unaryOperator or node.left in binaryOperator:
             node.left = node_list[i + 1]
             node.left.is_a_son = True
